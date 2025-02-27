@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Main : MonoBehaviour
@@ -5,6 +6,10 @@ public class Main : MonoBehaviour
     public float moveSpeed = 15f;
     private Rigidbody2D rb;
     private Vector2 movement;
+    public GameObject bulletPrefab;
+    public Transform vitri;
+    public float fireRate = 0.5f;
+    private bool canFire = true;
 
     void Start()
     {
@@ -14,7 +19,11 @@ public class Main : MonoBehaviour
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal"); 
-        movement.y = Input.GetAxisRaw("Vertical");   
+        movement.y = Input.GetAxisRaw("Vertical");
+        if (Input.GetKeyDown(KeyCode.Space) && canFire)
+        {
+            StartCoroutine(Fire());
+        }
     }
 
     void FixedUpdate()
@@ -26,6 +35,13 @@ public class Main : MonoBehaviour
         if (collision.gameObject.CompareTag("wall")) {
         Destroy(gameObject,2f);
         }
+    }
+    IEnumerator Fire()
+    {
+        canFire = false;
+        Instantiate(bulletPrefab,vitri.position, Quaternion.Euler(0, 0, 90));
+        yield return new WaitForSeconds(fireRate);
+        canFire = true;
     }
 
 }

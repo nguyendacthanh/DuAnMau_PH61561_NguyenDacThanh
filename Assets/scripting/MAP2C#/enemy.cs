@@ -8,7 +8,13 @@ public class enemy : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isMovingRandomly = false;
-    private QLenemy qlEnemy; 
+    private QLenemy qlEnemy;
+
+    //phan lien quan den ban dan
+    public GameObject bulletPrefab;
+    public Transform vitri;
+    public float fireRate = 1.5f;
+    private bool canFire = true;
 
     void Start()
     {
@@ -21,6 +27,10 @@ public class enemy : MonoBehaviour
         if (!isMovingRandomly)
         {
             rb.linearVelocity = new Vector2(0, -moveSpeed);
+        }
+        if (canFire)
+        {
+            StartCoroutine(Fire());
         }
     }
 
@@ -62,5 +72,12 @@ public class enemy : MonoBehaviour
         }
 
         transform.position = targetPos;
+    }
+    IEnumerator Fire()
+    {
+        canFire = false;
+        Instantiate(bulletPrefab, vitri.position, Quaternion.Euler(0, 0, 270));
+        yield return new WaitForSeconds(fireRate);
+        canFire = true;
     }
 }
