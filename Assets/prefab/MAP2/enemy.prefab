@@ -197,8 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79ac8fab9b8b0c418a9db927afb5ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15
+  moveSpeed: 20
   moveInterval: 2
   bulletPrefab: {fileID: 4885242235268099819, guid: 018e4ee0590891140b25b89dfde909d6, type: 3}
   vitri: {fileID: 8597119119614146865}
-  fireRate: 0.5
+  fireRate: 1.5
