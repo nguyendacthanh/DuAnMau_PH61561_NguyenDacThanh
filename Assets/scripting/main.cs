@@ -8,7 +8,7 @@ public class Main : MonoBehaviour
     private Vector2 movement;
     public GameObject bulletPrefab;
     public Transform vitri;
-    public float fireRate = 0.5f;
+    public float fireRate = 0.2f;
     private bool canFire = true;
 
     void Start()
@@ -33,7 +33,7 @@ public class Main : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("wall")) {
-        Destroy(gameObject,2f);
+        Destroy(gameObject);
         }
     }
     IEnumerator Fire()
