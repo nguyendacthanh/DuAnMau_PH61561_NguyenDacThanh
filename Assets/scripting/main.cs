@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Main : MonoBehaviour
 {
-    public float moveSpeed = 15f;
+    private float moveSpeed = 20f;
     private Rigidbody2D rb;
     private Vector2 movement;
     public GameObject bulletPrefab;
