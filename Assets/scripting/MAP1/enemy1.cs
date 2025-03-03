@@ -9,7 +9,7 @@ public class Enemy1 : MonoBehaviour
     //phan di chuyen
     public float moveSpeed = 15f;
     public float timePerMove = 2f;
-    public GameObject eventChanceMove;
+    //public GameObject eventChanceMove;
     private bool isMovingRandom = false;
 
     //phan auto ban
@@ -27,7 +27,7 @@ public class Enemy1 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == eventChanceMove && !isMovingRandom)
+        if (collision.gameObject.CompareTag("eventChanceMove") && !isMovingRandom)
         {
             isMovingRandom = true;
             StartCoroutine(SetRandomMove());

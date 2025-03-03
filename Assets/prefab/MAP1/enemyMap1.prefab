@@ -199,7 +199,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 15
   timePerMove: 1.5
-  eventChanceMove: {fileID: 0}
   bullet: {fileID: 4885242235268099819, guid: 018e4ee0590891140b25b89dfde909d6, type: 3}
   vitri: {fileID: 6504494670960713340}
   canfire: 1

@@ -8,6 +8,7 @@ TagManager:
   - main
   - enemy
   - gate
+  - eventChanceMove
   layers:
   - Default
   - TransparentFX
