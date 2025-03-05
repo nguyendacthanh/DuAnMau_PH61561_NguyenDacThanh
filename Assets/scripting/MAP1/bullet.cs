@@ -18,14 +18,13 @@ public class bullet : MonoBehaviour
 
             if (hp != null)
             {
+
                 hp.TakeDamage(damage);
             }
             Destroy(gameObject);
 
 
         }
-
-
     }
     private void Start()
     {

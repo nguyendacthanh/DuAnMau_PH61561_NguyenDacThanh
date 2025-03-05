@@ -34,11 +34,13 @@ public class HP : MonoBehaviour
 
         if (currentHP <= 0)
         {
-            Destroy(gameObject); // Xóa object khi HP = 0
+            Die();
+
+
         }
     }
 
-    void UpdateHPUI()
+    public void UpdateHPUI()
     {
         if (hpText != null)
         {
@@ -48,5 +50,15 @@ public class HP : MonoBehaviour
         {
             Debug.LogError("⚠ Chưa gán TextMeshPro cho nhân vật: " + gameObject.name);
         }
+    }
+    private void Die()
+    {
+        CheckWinning winManager = FindFirstObjectByType<CheckWinning>();
+
+        if (winManager != null)
+        {
+            winManager.EnemyDefeated(); // Gọi hàm tăng số lượng enemy bị tiêu diệt
+        }
+        Destroy(gameObject);
     }
 }

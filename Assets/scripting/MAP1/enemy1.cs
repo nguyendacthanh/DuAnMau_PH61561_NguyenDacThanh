@@ -17,7 +17,10 @@ public class Enemy1 : MonoBehaviour
     public GameObject bullet;
     public Transform vitri;
     public bool canfire = true;
-    
+
+
+    public int damage = 1;
+
 
     void Start()
     {
@@ -29,12 +32,22 @@ public class Enemy1 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        HP hp = collision.GetComponent<HP>();
+
         if (collision.gameObject.CompareTag("eventChanceMove") && !isMovingRandom)
         {
             isMovingRandom = true;
             StartCoroutine(SetRandomMove());
             StartCoroutine(setfirer());
         }
+        if (collision.CompareTag("main"))
+        {
+
+            hp.TakeDamage(damage);
+            Destroy(gameObject);
+            Die();
+        }
+
     }
 
     IEnumerator SetRandomMove()
@@ -72,5 +85,15 @@ public class Enemy1 : MonoBehaviour
         {
             spawnManager.DecreaseEnemyCount(); // Gọi hàm giảm biến đếm
         }
+    }
+    private void Die()
+    {
+        CheckWinning winManager = FindFirstObjectByType<CheckWinning>();
+
+        if (winManager != null)
+        {
+            winManager.EnemyDefeated(); // Gọi hàm tăng số lượng enemy bị tiêu diệt
+        }
+        Destroy(gameObject);
     }
 }
