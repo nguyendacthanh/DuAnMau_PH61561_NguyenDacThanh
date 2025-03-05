@@ -13,6 +13,7 @@ public class Enemy1 : MonoBehaviour
     private bool isMovingRandom = false;
 
     //phan auto ban
+    private Animator animator;
     public GameObject bullet;
     public Transform vitri;
     public bool canfire = true;
@@ -20,6 +21,7 @@ public class Enemy1 : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
         rb.linearVelocity = Vector2.down * moveSpeed;
@@ -56,8 +58,19 @@ public class Enemy1 : MonoBehaviour
     {
         while (true) {
             yield return new WaitForSeconds(1.5f);
+            animator.SetTrigger("enemy_atk");
             Instantiate(bullet,vitri.position, Quaternion.Euler(0, 0, 270));
+            
         }
     
+    }
+    public enemySpawnEvent spawnManager; // Tham chiếu đến script quản lý spawn
+
+    void OnDestroy()
+    {
+        if (spawnManager != null)
+        {
+            spawnManager.DecreaseEnemyCount(); // Gọi hàm giảm biến đếm
+        }
     }
 }

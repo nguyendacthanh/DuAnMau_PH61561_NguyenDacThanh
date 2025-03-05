@@ -10,9 +10,11 @@ public class Main : MonoBehaviour
     public Transform vitri;
     public float fireRate = 0.2f;
     private bool canFire = true;
+    Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -39,6 +41,7 @@ public class Main : MonoBehaviour
     IEnumerator Fire()
     {
         canFire = false;
+        animator.SetTrigger("atk");
         Instantiate(bulletPrefab,vitri.position, Quaternion.Euler(0, 0, 90));
         yield return new WaitForSeconds(fireRate);
         canFire = true;

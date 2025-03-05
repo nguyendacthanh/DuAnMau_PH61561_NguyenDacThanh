@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 7246457343376061450}
   - component: {fileID: 3054153693094542265}
   - component: {fileID: 5628430893243910910}
+  - component: {fileID: 6973350741036539595}
   m_Layer: 0
   m_Name: enemyMap1
   m_TagString: enemy
@@ -202,3 +203,25 @@ MonoBehaviour:
   bullet: {fileID: 4885242235268099819, guid: 018e4ee0590891140b25b89dfde909d6, type: 3}
   vitri: {fileID: 6504494670960713340}
   canfire: 1
+--- !u!95 &6973350741036539595
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6892980750086170109}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8e0507a387f0d9f4892037a366a01c39, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
