@@ -1,51 +1,44 @@
 ﻿using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class main :MonoBehaviour
+public class Main : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer;
     private float moveSpeed = 20f;
     private Rigidbody2D rb;
     private Vector2 movement;
-    public GameObject bulletPrefab, bulletPrefab2;
-    public Transform vitri,vitri2;
+    public GameObject bulletPrefab;
+    public Transform vitri;
     public float fireRate = 0.2f;
     private bool canFire = true;
     Animator animator;
     public int damage = 1;
 
     public int checkHeal = 1;
+    public GameObject HeathPoint;
     private HP healing;
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         healing = GetComponent<HP>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.x = Input.GetAxisRaw("Horizontal"); 
         movement.y = Input.GetAxisRaw("Vertical");
-        if (movement.x > 0)
-        {
-            spriteRenderer.flipX = false; 
-        }
-        else if (movement.x < 0)
-        {
-            spriteRenderer.flipX = true; 
-        }
-        if (Input.GetKeyDown(KeyCode.Space) && canFire && spriteRenderer.flipX==false)
+        if (Input.GetKeyDown(KeyCode.Space) && canFire)
         {
             StartCoroutine(Fire());
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && canFire && spriteRenderer.flipX == true)
+        if (Input.GetKeyDown(KeyCode.E) && checkHeal==1)
         {
-            StartCoroutine(Fire2());
-
+            float getRandomX = Random.Range(-60f, -5f);
+            Vector3 viTriRandom_spawn = new Vector3(getRandomX, 30f, 1);
+            GameObject newEnemy = Instantiate(HeathPoint, viTriRandom_spawn, Quaternion.identity);
+            checkHeal = 0;
         }
-
     }
 
     void FixedUpdate()
@@ -55,13 +48,9 @@ public class main :MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject.CompareTag("wall"))
-        {
-            HP hP = GetComponent<HP>();
-            if (hP != null) {
-                hP.TakeDamage(damage);
-            }
-
+        if (collision.gameObject.CompareTag("wall")) {
+        Destroy(gameObject);
+           
         }
 
     }
@@ -71,26 +60,18 @@ public class main :MonoBehaviour
         if (collision.gameObject.CompareTag("HP"))
         {
             Heal();
-            Destroy(collision.gameObject);
+
         }
 
     }
-
+    
 
 
     IEnumerator Fire()
     {
         canFire = false;
         animator.SetTrigger("atk");
-        Instantiate(bulletPrefab, vitri.position, Quaternion.identity);
-        yield return new WaitForSeconds(fireRate);
-        canFire = true;
-    }
-    IEnumerator Fire2()
-    {
-        canFire = false;
-        animator.SetTrigger("atk");
-        Instantiate(bulletPrefab2, vitri2.position, Quaternion.identity);
+        Instantiate(bulletPrefab,vitri.position, Quaternion.Euler(0, 0, 90));
         yield return new WaitForSeconds(fireRate);
         canFire = true;
     }
@@ -102,4 +83,5 @@ public class main :MonoBehaviour
             healing.UpdateHPUI(); // Cập nhật hiển thị HP
         }
     }
+
 }

@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 
 public class HP : MonoBehaviour
@@ -15,16 +16,21 @@ public class HP : MonoBehaviour
 
     void Start()
     {
-        currentHP = maxHP; // Khởi tạo HP bằng maxHP
-        UpdateHPUI();       // Cập nhật hiển thị HP
+
+            currentHP = maxHP; // Khởi tạo HP bằng maxHP
+            UpdateHPUI();
+
     }
 
     void Update()
     {
+
+
         if (hpText != null)
         {
             hpText.transform.position = transform.position + offset; // Luôn đi theo nhân vật
         }
+
     }
 
     public void TakeDamage(int damage)
@@ -35,6 +41,14 @@ public class HP : MonoBehaviour
         if (currentHP <= 0)
         {
             Die();
+            if (this.gameObject.CompareTag("enemy"))
+            {
+                EnemyKillCount counter = FindAnyObjectByType<EnemyKillCount>();
+                if (counter != null)
+                {
+                    counter.IncreaseKillCount();
+                }
+            }
 
 
         }
@@ -60,5 +74,6 @@ public class HP : MonoBehaviour
             winManager.EnemyDefeated(); // Gọi hàm tăng số lượng enemy bị tiêu diệt
         }
         Destroy(gameObject);
+        
     }
 }

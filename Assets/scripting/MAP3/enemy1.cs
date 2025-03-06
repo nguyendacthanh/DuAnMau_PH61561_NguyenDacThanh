@@ -86,14 +86,22 @@ public class Enemy1 : MonoBehaviour
             spawnManager.DecreaseEnemyCount(); // Gọi hàm giảm biến đếm
         }
     }
+
+
+    // đếm số lượng quái bị giết để theo dõi tiến trình hoàn thành nhiệm vụ, check điều kiện thắng
     private void Die()
     {
         CheckWinning winManager = FindFirstObjectByType<CheckWinning>();
-
+        EnemyKillCount counter = FindAnyObjectByType<EnemyKillCount>();
+        if (counter != null)
+        {
+            counter.IncreaseKillCount();
+        }
         if (winManager != null)
         {
-            winManager.EnemyDefeated(); // Gọi hàm tăng số lượng enemy bị tiêu diệt
+            winManager.EnemyDefeated(); 
         }
+        
         Destroy(gameObject);
     }
 }

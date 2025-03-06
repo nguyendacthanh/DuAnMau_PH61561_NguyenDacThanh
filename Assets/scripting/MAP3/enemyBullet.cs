@@ -30,6 +30,6 @@ public class enemyBullet : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 7f);
     }
 }
