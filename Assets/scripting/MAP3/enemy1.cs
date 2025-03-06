@@ -44,7 +44,8 @@ public class Enemy1 : MonoBehaviour
         {
 
             hp.TakeDamage(damage);
-            Destroy(gameObject);
+            animator.SetTrigger("death");
+            Destroy(gameObject,0.5f);
             Die();
         }
 
@@ -77,13 +78,13 @@ public class Enemy1 : MonoBehaviour
         }
     
     }
-    public enemySpawnEvent spawnManager; // Tham chiếu đến script quản lý spawn
+    public enemySpawnEvent spawnManager;
 
     void OnDestroy()
     {
         if (spawnManager != null)
         {
-            spawnManager.DecreaseEnemyCount(); // Gọi hàm giảm biến đếm
+            spawnManager.DecreaseEnemyCount(); 
         }
     }
 

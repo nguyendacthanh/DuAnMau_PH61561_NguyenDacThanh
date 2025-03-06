@@ -16,6 +16,7 @@ public class main :MonoBehaviour
 
     public int checkHeal = 1;
     private HP healing;
+    public GameObject winPanel;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -72,6 +73,10 @@ public class main :MonoBehaviour
         {
             Heal();
             Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("win"))
+        {
+            winPanel.SetActive(true);
         }
 
     }

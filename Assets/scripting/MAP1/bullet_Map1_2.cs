@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class bullet_Map1_2:MonoBehaviour
 {
-    public float speed = 20f;
+    public float speed = 40f;
     private Rigidbody rb;
     public int damage = 1;
     void Update()

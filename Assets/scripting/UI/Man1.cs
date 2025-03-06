@@ -3,10 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class Man1 : MonoBehaviour 
 {
-    public string sceneName;
+    public GameObject panelNext,panelPrev;
+    
 
     public void LoadScene()
     {
-        SceneManager.LoadScene(sceneName);
+        panelPrev.SetActive(false);
+        panelNext.SetActive(true);
+
     }
 }

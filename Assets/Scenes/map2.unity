@@ -3176,6 +3176,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff4c17f39be778c4189cdae065a7d229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
+  mapresetPosition: {fileID: 1921456441}
+  startPosition: {fileID: 2144040886}
 --- !u!1001 &420106978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3595,6 +3598,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff4c17f39be778c4189cdae065a7d229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
+  mapresetPosition: {fileID: 1921456441}
+  startPosition: {fileID: 2144040886}
 --- !u!1 &543268343
 GameObject:
   m_ObjectHideFlags: 0
@@ -5961,6 +5967,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff4c17f39be778c4189cdae065a7d229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
+  mapresetPosition: {fileID: 1921456441}
+  startPosition: {fileID: 2144040886}
 --- !u!1 &1876846106
 GameObject:
   m_ObjectHideFlags: 0

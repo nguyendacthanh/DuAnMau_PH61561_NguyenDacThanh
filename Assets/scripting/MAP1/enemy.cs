@@ -69,7 +69,7 @@ public class enemy : MonoBehaviour
             canfire = false;
             animator.SetTrigger("enemy_atk");
             Instantiate(bullet, vitri.position, Quaternion.Euler(0, 0, 0));
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
 
             canfire = true;
         }

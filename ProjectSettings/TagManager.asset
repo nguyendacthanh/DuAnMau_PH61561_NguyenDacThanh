@@ -10,6 +10,7 @@ TagManager:
   - gate
   - eventChanceMove
   - HP
+  - win
   layers:
   - Default
   - TransparentFX

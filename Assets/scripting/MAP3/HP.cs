@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HP : MonoBehaviour
 {
+    Animator animator;
     [Header("Thiết lập HP")]
     public int maxHP = 5;         // HP tối đa, có thể chỉnh sửa trong Inspector
     public int currentHP;         // HP hiện tại
@@ -16,7 +17,7 @@ public class HP : MonoBehaviour
 
     void Start()
     {
-
+        animator = GetComponent<Animator>();
             currentHP = maxHP; // Khởi tạo HP bằng maxHP
             UpdateHPUI();
 
@@ -73,7 +74,9 @@ public class HP : MonoBehaviour
         {
             winManager.EnemyDefeated(); // Gọi hàm tăng số lượng enemy bị tiêu diệt
         }
-        Destroy(gameObject);
+        
+        animator.SetTrigger("death");
+        Destroy(gameObject, 0.5f);
         
     }
 }
