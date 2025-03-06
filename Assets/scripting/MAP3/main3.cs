@@ -42,20 +42,20 @@ public class main3 : MonoBehaviour
     {
         rb.linearVelocity = movement * moveSpeed;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
 
-        if (collision.gameObject.CompareTag("wall"))
-        {
-            HP hP = GetComponent<HP>();
-            if (hP != null)
-            {
-                hP.TakeDamage(damage);
-            }
+    //    if (collision.gameObject.CompareTag("wall"))
+    //    {
+    //        HP hP = GetComponent<HP>();
+    //        if (hP != null)
+    //        {
+    //            hP.TakeDamage(damage);
+    //        }
 
-        }
+    //    }
 
-    }
+    //}
     private void OnTriggerEnter2D(Collider2D collision)
     {
 

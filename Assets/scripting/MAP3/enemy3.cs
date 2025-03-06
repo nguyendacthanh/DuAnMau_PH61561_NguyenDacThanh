@@ -8,7 +8,7 @@ public class enemy3 : MonoBehaviour
 
     //phan di chuyen
     public float moveSpeed = 15f;
-    public float timePerMove = 2f;
+    public float timePerMove = 3f;
     //public GameObject eventChanceMove;
     private bool isMovingRandom = false;
 
@@ -27,7 +27,7 @@ public class enemy3 : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
-        rb.linearVelocity = Vector2.down * moveSpeed;
+        rb.linearVelocity = Vector2.left * moveSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,7 +46,7 @@ public class enemy3 : MonoBehaviour
             hp.TakeDamage(damage);
             animator.SetTrigger("death");
             Destroy(gameObject, 0.5f);
-            Die();
+
         }
 
     }
@@ -59,9 +59,9 @@ public class enemy3 : MonoBehaviour
         {
             yield return new WaitForSeconds(timePerMove);
 
-            float x = Random.Range(-50, 0);
-            float y = Random.Range(-8, -7);
-            Vector2 targetPosition = new Vector2(Random.Range(-65, -10), Random.Range(-11, -9));
+            float x = Random.Range(-16, 0);
+            float y = Random.Range(-30, -7);
+            Vector2 targetPosition = new Vector2(Random.Range(-10, -5), Random.Range(-11, -9));
 
             Vector2 moveDirection = (targetPosition - rb.position).normalized;
 
@@ -72,14 +72,14 @@ public class enemy3 : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(3f);
             animator.SetTrigger("enemy_atk");
-            Instantiate(bullet, vitri.position, Quaternion.Euler(0, 0, 270));
+            Instantiate(bullet, vitri.position, Quaternion.identity);
 
         }
 
     }
-    public enemySpawnEvent spawnManager;
+    public spawnManager3 spawnManager;
 
     void OnDestroy()
     {
@@ -87,23 +87,5 @@ public class enemy3 : MonoBehaviour
         {
             spawnManager.DecreaseEnemyCount();
         }
-    }
-
-
-    // đếm số lượng quái bị giết để theo dõi tiến trình hoàn thành nhiệm vụ, check điều kiện thắng
-    private void Die()
-    {
-        CheckWinning winManager = FindFirstObjectByType<CheckWinning>();
-        EnemyKillCount counter = FindAnyObjectByType<EnemyKillCount>();
-        if (counter != null)
-        {
-            counter.IncreaseKillCount();
-        }
-        if (winManager != null)
-        {
-            winManager.EnemyDefeated();
-        }
-
-        Destroy(gameObject);
     }
 }

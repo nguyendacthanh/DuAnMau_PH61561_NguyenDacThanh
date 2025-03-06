@@ -50,7 +50,7 @@ public class HP : MonoBehaviour
                     counter.IncreaseKillCount();
                 }
             }
-
+            Destroy(gameObject);
 
         }
     }
@@ -74,9 +74,13 @@ public class HP : MonoBehaviour
         {
             winManager.EnemyDefeated(); // Gọi hàm tăng số lượng enemy bị tiêu diệt
         }
+
+
         
-        animator.SetTrigger("death");
-        Destroy(gameObject, 0.5f);
+            animator.SetTrigger("death");
+            Destroy(gameObject, 0.5f);
         
+
+
     }
 }

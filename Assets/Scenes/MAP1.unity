@@ -1676,6 +1676,7 @@ GameObject:
   - component: {fileID: 362412266}
   - component: {fileID: 362412265}
   - component: {fileID: 362412264}
+  - component: {fileID: 362412267}
   m_Layer: 5
   m_Name: Next Lever
   m_TagString: Untagged
@@ -1746,7 +1747,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 362412265}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 362412267}
+        m_TargetAssemblyTypeName: Man2, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &362412265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1785,6 +1798,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 362412262}
   m_CullTransparentMesh: 1
+--- !u!114 &362412267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362412262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f7207d2f22abf4394cd850273d1cdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: MAP2
 --- !u!1 &402506110
 GameObject:
   m_ObjectHideFlags: 0
@@ -22007,7 +22033,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -22204,6 +22230,7 @@ GameObject:
   - component: {fileID: 1526340060}
   - component: {fileID: 1526340059}
   - component: {fileID: 1526340058}
+  - component: {fileID: 1526340061}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -22274,7 +22301,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1526340059}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1526340061}
+        m_TargetAssemblyTypeName: Man2, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1526340059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22313,6 +22352,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526340056}
   m_CullTransparentMesh: 1
+--- !u!114 &1526340061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526340056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f7207d2f22abf4394cd850273d1cdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Menu
 --- !u!1 &1557292513
 GameObject:
   m_ObjectHideFlags: 0
@@ -23014,6 +23066,7 @@ GameObject:
   - component: {fileID: 1762196550}
   - component: {fileID: 1762196549}
   - component: {fileID: 1762196548}
+  - component: {fileID: 1762196551}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -23084,7 +23137,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1762196549}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1762196551}
+        m_TargetAssemblyTypeName: Man2, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1762196549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23123,6 +23188,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762196546}
   m_CullTransparentMesh: 1
+--- !u!114 &1762196551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762196546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f7207d2f22abf4394cd850273d1cdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Menu
 --- !u!1 &1872542777
 GameObject:
   m_ObjectHideFlags: 0
@@ -23395,6 +23473,7 @@ GameObject:
   - component: {fileID: 1911235888}
   - component: {fileID: 1911235887}
   - component: {fileID: 1911235886}
+  - component: {fileID: 1911235889}
   m_Layer: 5
   m_Name: Next Lever
   m_TagString: Untagged
@@ -23465,7 +23544,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1911235887}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1911235889}
+        m_TargetAssemblyTypeName: Man2, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1911235887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23504,6 +23595,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911235884}
   m_CullTransparentMesh: 1
+--- !u!114 &1911235889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911235884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f7207d2f22abf4394cd850273d1cdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: MAP1
 --- !u!1 &1934346655
 GameObject:
   m_ObjectHideFlags: 0
